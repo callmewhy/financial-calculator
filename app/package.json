@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "financial-calculator",
+  "version": "0.1.0",
+  "author": "Lemur",
+  "main": "background.js",
+  "dependencies": {
+    "highcharts": "^4.2.3",
+    "material-design-icons": "^2.2.3",
+    "material-design-lite": "^1.1.3"
+  },
+  "appManifest": {
+    "productName": "Financial Calculator",
+    "bundleId": "com.stooock.calculator",
+    "version": "0.1.0"
+  }
+}
