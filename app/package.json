@@ -12,6 +12,6 @@
   "appManifest": {
     "productName": "Financial Calculator",
     "bundleId": "com.stooock.calculator",
-    "version": "0.1.0"
+    "version": "1.0.0"
   }
 }

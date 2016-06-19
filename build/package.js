@@ -33,14 +33,14 @@ const packagerConfig = {
     return `/node_modules/${name}($|/)`
   }),
   'app-version': appManifest.version,
+  'app-bundle-id': appManifest.bundleId,
 }
 
-if (packagerConfig.platform === 'mas') {
-  Object.assign(packagerConfig, {
-    'app-bundle-id': appManifest.bundleId,
-    'osx-sign': true,
-  })
-}
+// if (packagerConfig.platform === 'mas') {
+//   Object.assign(packagerConfig, {
+//     'osx-sign': true,
+//   })
+// }
 
 console.log(packagerConfig)
 
