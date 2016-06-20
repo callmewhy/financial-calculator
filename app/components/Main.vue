@@ -13,8 +13,9 @@
 
 <script type="text/babel">
   import LeftBar from './LeftBar.vue'
-  // import Blank from './Pages/Blank.vue'
-  import Breakeven from './Pages/Breakeven/Breakeven.vue'
+  import Blank from './Pages/Blank.vue'
+  import Breakeven from './Pages/StockBreakeven/StockBreakeven.vue'
+  import Income from './Pages/StockIncome/StockIncome.vue'
 
   export default {
     ready: () => {
@@ -25,11 +26,13 @@
     },
     routes: {
       '/': {
-        // component: Blank,
-        component: Breakeven,
+        component: Blank,
       },
       '/breakeven': {
         component: Breakeven,
+      },
+      '/income': {
+        component: Income,
       },
     },
   }

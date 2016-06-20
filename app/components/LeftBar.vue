@@ -1,7 +1,10 @@
 <template>
   <span class="mdl-layout-title">股票</span>
   <nav class="mdl-navigation menus">
-    <a class="mdl-navigation__link is-active mdl-shadow--2dp" v-link="{ path: '/breakeven' }" v-on:click="linkTaped">保本卖出价</a>
+    <a class="mdl-navigation__link"
+       v-link="{ path: '/income' }" v-on:click="linkTaped">盈亏计算器</a>
+    <a class="mdl-navigation__link"
+       v-link="{ path: '/breakeven' }" v-on:click="linkTaped">保本卖出价</a>
   </nav>
 </template>
 
