@@ -9,16 +9,20 @@
         <a href="#content-panel" v-on:click.prevent="clickTab(3)" class="mdl-tabs__tab">深市 B 股</a>
       </div>
       <div class="mdl-tabs__panel is-active" id="content-panel">
-        <div v-for="item of currentTabItem">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input type="text" class="mdl-textfield__input" id="{{ item.id }}"
-                   pattern="-?[0-9]*(\.[0-9]+)?" v-model="item.model"/>
-            <label class="mdl-textfield__label" for="{{ item.id }}">{{ item.label }}</label>
-            <span class="suffix-text">{{ item.suffix }}</span>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--7-col" id="input-panel">
+            <div v-for="item of currentTabItem">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input type="text" class="mdl-textfield__input" id="{{ item.id }}"
+                       pattern="-?[0-9]*(\.[0-9]+)?" v-model="item.model"/>
+                <label class="mdl-textfield__label" for="{{ item.id }}">{{ item.label }}</label>
+                <span class="suffix-text">{{ item.suffix }}</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div id="result-panel" class="mdl-color-text--primary">
-          {{ result }}
+          <div class="mdl-cell mdl-cell--5-col" id="result-panel">
+            <div id="graph-container"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -27,6 +31,7 @@
 
 <script type="text/babel">
   import calculator from './calculator'
+  import highcharts from 'highcharts'
 
   function buildItem(tab) {
     const inputs = {
@@ -64,6 +69,51 @@
   export default{
     ready: function () {
       componentHandler.upgradeDom()
+      highcharts.chart('graph-container', {
+        chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false,
+          type: 'pie',
+        },
+        title: null,
+        tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+              enabled: false,
+            },
+            showInLegend: true,
+          },
+        },
+        series: [{
+          name: '占比',
+          colorByPoint: true,
+          data: [{
+            name: 'Microsoft Internet Explorer',
+            y: 56.33,
+          }, {
+            name: 'Chrome',
+            y: 24.03,
+          }, {
+            name: 'Firefox',
+            y: 10.38,
+          }, {
+            name: 'Safari',
+            y: 4.77,
+          }, {
+            name: 'Opera',
+            y: 0.91,
+          }, {
+            name: 'Proprietary or Undetectable',
+            y: 0.2,
+          }],
+        }],
+      })
     },
     methods: {
       clickTab: function (index) {
@@ -114,17 +164,21 @@
     right: 0;
   }
 
-  #content-panel {
-    width: 90%;
-    margin: 2rem 5%;
-  }
-
   .mdl-textfield {
     width: 100%;
   }
 
-  #result-panel {
-    padding-bottom: $input-text-vertical-spacing;
-    font-weight: bold;
+  #content-panel {
+    width: 90%;
+    margin: 2rem 5%;
+    #input-panel {
+    }
+    #result-panel {
+      #graph-container {
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
+
 </style>
