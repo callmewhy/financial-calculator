@@ -3,15 +3,15 @@
 # Name of your app.
 APP="Financial Calculator"
 # The path of your app to sign.
-APP_PATH="/Users/why/workspace/web/stooock/financial-calculator/releases/Financial Calculator-mas-x64/Financial Calculator.app"
+APP_PATH="../releases/Financial Calculator-mas-x64/Financial Calculator.app"
 # The path to the location you want to put the signed package.
-RESULT_PATH="/Users/why/workspace/web/stooock/financial-calculator/releases/Financial Calculator-mas-x64/Financial Calculator.pkg"
+RESULT_PATH="../releases/Financial Calculator-mas-x64/Financial Calculator.pkg"
 # The name of certificates you requested.
 APP_KEY="3rd Party Mac Developer Application: Haiyang Wang (YKZVGCKFL7)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Haiyang Wang (YKZVGCKFL7)"
 # The path of your plist files.
-CHILD_PLIST="/Users/why/workspace/web/stooock/financial-calculator/releases/Financial Calculator-mas-x64/Financial Calculator.app/Contents/child.plist"
-PARENT_PLIST="/Users/why/workspace/web/stooock/financial-calculator/releases/Financial Calculator-mas-x64/Financial Calculator.app/Contents/parent.plist"
+CHILD_PLIST="./child.plist"
+PARENT_PLIST="./parent.plist"
 
 FRAMEWORKS_PATH="$APP_PATH/Contents/Frameworks"
 
