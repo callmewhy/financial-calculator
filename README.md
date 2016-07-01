@@ -12,12 +12,6 @@ npm run start
 
 ## Cheat Sheets 
 
-Build pkg for Mac App:
-
-```
-./node_modules/.bin/electron-osx-flat ./releases/[AppName]-mas-x64/[AppName].app
-```
-
 Generate icns:
 
 ```
